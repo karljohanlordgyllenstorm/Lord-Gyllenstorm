@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karl-Johan Lord Gyllenstorm | Executive Briefing & Beslutsunderlag</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        executive: {
+                            bg: '#f8fafc',
+                            card: '#ffffff',
+                            border: '#e2e8f0',
+                            navy: '#0f172a',
+                            slate: '#334155',
+                            accent: '#3730a3',
+                            blue: '#2563eb',
+                            emerald: '#047857',
+                            gold: '#b45309'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+                        serif: ['Georgia', 'Cambria', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #1e293b;
+        }
+
+        .executive-shadow {
+            box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05), 0 2px 6px -1px rgba(15, 23, 42, 0.03);
+        }
+
+        .tab-btn.active {
+            color: #3730a3;
+            border-bottom-color: #3730a3;
+            background-color: #f1f5f9;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between text-slate-800 antialiased">
+
+    <!-- TOP NAVIGATION BAR -->
+    <header class="bg-white border-b border-slate-200 sticky top-0 z-40">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex flex-wrap justify-between items-center gap-4">
+            <!-- Profile Identity -->
+            <div class="flex items-center space-x-4">
+                <img src="https://lh3.googleusercontent.com/a/ACg8ocL_L6iQirAtSINn9iDoSbsWfAtvy1fQHmoPdZCzNZSiuXHg0Q8=s83-c-mo" 
+                     alt="Karl-Johan Lord Gyllenstorm" 
+                     class="w-12 h-12 rounded-full border border-slate-300 object-cover shadow-sm"
+                     onerror="this.src='https://placehold.co/100x100/1e1b4b/ffffff?text=K-J'">
+                <div>
+                    <h1 class="text-lg font-bold text-slate-900 leading-tight">Karl-Johan Lord Gyllenstorm</h1>
+                    <p class="text-xs text-slate-500 font-medium">Executive Briefing &bull; Beslutsunderlag</p>
+                </div>
+            </div>
+
+            <!-- Dynamic Recipient Tag & Direct Actions -->
+            <div class="flex items-center space-x-3">
+                <div class="hidden sm:block text-right pr-3 border-r border-slate-200">
+                    <span class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold block">Mottagande Organisation</span>
+                    <span id="header-company-name" class="text-xs font-bold text-slate-900">Din Organisation</span>
+                </div>
+                <a href="tel:0767929534" class="px-3.5 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold shadow-sm transition flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-slate-300"></i>
+                    <span>0767-929534</span>
+                </a>
+                <a href="mailto:karljohan.lord.gyllenstorm@gmail.com" class="px-3.5 py-2 rounded-lg bg-indigo-900 hover:bg-indigo-800 text-white text-xs font-semibold shadow-sm transition flex items-center gap-2">
+                    <i class="fa-solid fa-envelope text-indigo-200"></i>
+                    <span>Direktkontakt</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- EXECUTIVE WELCOME & RECIPIENT BRIEFING -->
+    <section class="bg-gradient-to-b from-white to-slate-50 border-b border-slate-200 py-10 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-100 text-indigo-900 text-xs font-semibold mb-4">
+                <span class="w-2 h-2 rounded-full bg-indigo-600"></span>
+                <span>Riktat Beslutsunderlag för Rekrytering</span>
+            </div>
+
+            <h2 class="text-2xl sm:text-3xl font-serif text-slate-900 font-bold leading-tight max-w-3xl">
+                Strategiskt ledarskap och operativ exekvering anpassad för <span id="hero-company-name" class="text-indigo-900 underline decoration-indigo-200 decoration-2 underline-offset-4">er verksamhet</span>.
+            </h2>
+
+            <p class="mt-4 text-sm sm:text-base text-slate-600 leading-relaxed max-w-4xl">
+                Med över 25 års gedigen erfarenhet från statlig, kommunal och privat sektor samt som egenföretagare – i roller som <strong>VD, platschef, lagbas och projektledare</strong> – presenterar jag nedan en konkret matchning mot rollen som <strong id="hero-role-title" class="text-slate-900 font-semibold">Tjänstebefattning</strong>.
+            </p>
+
+            <!-- Key Metric Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
+                <div class="bg-white p-5 rounded-xl border border-slate-200 executive-shadow">
+                    <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Erfarenhet</span>
+                    <div class="text-2xl font-bold text-slate-900 mt-1">25+ År</div>
+                    <p class="text-xs text-slate-500 mt-1">VD, Platschef & Ledarskap i förändring</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 executive-shadow">
+                    <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Tillgänglighet</span>
+                    <div class="text-2xl font-bold text-indigo-900 mt-1">Heltid (6+ mån)</div>
+                    <p class="text-xs text-slate-500 mt-1">Redo för omgående eller snabb tillträdesstart</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl border border-slate-200 executive-shadow">
+                    <span class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Matchade Sökord</span>
+                    <div id="hero-keywords-badge" class="text-sm font-semibold text-slate-800 mt-1 truncate">
+                        Ledarskap, Drift & Strategi
+                    </div>
+                    <p class="text-xs text-slate-500 mt-1">Verifierade kompetensområden</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN BRIEFING CONTENT -->
+    <main class="max-w-6xl mx-auto px-4 py-10 w-full space-y-12 flex-grow">
+
+        <!-- SECTION 1: KRAV VS ERFARENHET (DIREKT MATCHNING) -->
+        <section class="space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-slate-200 pb-3">
+                <div>
+                    <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                        <i class="fa-solid fa-list-check text-indigo-900"></i>
+                        Kompetensmatchning mot kravprofil
+                    </h3>
+                    <p class="text-xs text-slate-500">Jämförelse mellan efterfrågade nyckelområden och Karl-Johan Lord Gyllenstorms verifierade bakgrund.</p>
+                </div>
+                <span class="text-xs text-indigo-900 font-semibold bg-indigo-50 px-3 py-1 rounded border border-indigo-100">
+                    Konkret Verksamhetsnytta
+                </span>
+            </div>
+
+            <div class="bg-white rounded-xl border border-slate-200 overflow-hidden executive-shadow">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs sm:text-sm">
+                        <thead class="bg-slate-100 text-slate-700 text-xs uppercase tracking-wider border-b border-slate-200">
+                            <tr>
+                                <th class="p-4 w-1/3 font-semibold">Efterfrågat Behov / Fokusområde</th>
+                                <th class="p-4 w-1/2 font-semibold">Karl-Johans Praktiska Erfarenhet</th>
+                                <th class="p-4 text-center font-semibold">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="match-table-body" class="divide-y divide-slate-100 text-slate-700">
+                            <!-- Dynamic Content loaded via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: KARRIÄRMILSTOLPAR & LEDARSKAPSFILOSOFI (TABBED VIEW) -->
+        <section class="space-y-4">
+            <div class="border-b border-slate-200 pb-3">
+                <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2.5">
+                    <i class="fa-solid fa-briefcase text-indigo-900"></i>
+                    Karriärmilstolpar & Ledarskapsprofil
+                </h3>
+                <p class="text-xs text-slate-500">Välj område nedan för att granska specifika erfarenheter ur över två decennier i ledande positioner.</p>
+            </div>
+
+            <!-- Tab Buttons -->
+            <div class="flex flex-wrap border-b border-slate-200 gap-2">
+                <button onclick="switchTab('leadership')" id="tab-btn-leadership" class="tab-btn active px-4 py-2.5 text-xs sm:text-sm font-semibold border-b-2 border-transparent transition hover:text-indigo-900">
+                    <i class="fa-solid fa-user-group mr-1.5"></i> VD & Verksamhetsledarskap
+                </button>
+                <button onclick="switchTab('operations')" id="tab-btn-operations" class="tab-btn px-4 py-2.5 text-xs sm:text-sm font-semibold border-b-2 border-transparent transition hover:text-indigo-900">
+                    <i class="fa-solid fa-helmet-safety mr-1.5"></i> Platschef & Operativ Drift
+                </button>
+                <button onclick="switchTab('projects')" id="tab-btn-projects" class="tab-btn px-4 py-2.5 text-xs sm:text-sm font-semibold border-b-2 border-transparent transition hover:text-indigo-900">
+                    <i class="fa-solid fa-diagram-project mr-1.5"></i> Projektstyrning & Struktur
+                </button>
+                <button onclick="switchTab('business')" id="tab-btn-business" class="tab-btn px-4 py-2.5 text-xs sm:text-sm font-semibold border-b-2 border-transparent transition hover:text-indigo-900">
+                    <i class="fa-solid fa-building-user mr-1.5"></i> Eget Företagande
+                </button>
+            </div>
+
+            <!-- Tab Contents -->
+            <div id="tab-content-container" class="bg-white p-6 rounded-xl border border-slate-200 executive-shadow min-h-[220px]">
+                <!-- Dynamic Content loaded via JS -->
+            </div>
+        </section>
+
+        <!-- SECTION 3: VALUE PROPOSITION & AVAILABILITY -->
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="md:col-span-2 bg-gradient-to-br from-indigo-900 via-slate-900 to-slate-950 text-white p-8 rounded-xl executive-shadow flex flex-col justify-between">
+                <div>
+                    <span class="text-xs font-semibold text-indigo-300 uppercase tracking-wider block mb-2">Leverans från Dag 1</span>
+                    <h4 class="text-xl sm:text-2xl font-serif font-bold leading-snug">
+                        Stabilitet, struktur och tydlighet utan lång startsträcka.
+                    </h4>
+                    <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+                        Med min mångåriga erfarenhet kliver jag in i organisationen med trygghet. Jag förstår vikten av att kombinera operativ närvaro med strategiskt helhetstänk – oavsett om uppdraget handlar om att leda ett befintligt team, strukturera upp en drift eller driva ett tidsbestämt projekt.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 pt-6 border-t border-indigo-800/60 text-xs">
+                    <div class="flex items-start space-x-2.5">
+                        <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+                        <span><strong>Tryggt Ledarskap:</strong> Van vid både lagbas- och VD-ansvar.</span>
+                    </div>
+                    <div class="flex items-start space-x-2.5">
+                        <i class="fa-solid fa-check text-emerald-400 mt-0.5"></i>
+                        <span><strong>Flexibel Omfattning:</strong> Öppen för heltidsuppdrag (minst 6 månader).</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact & Download Actions Card -->
+            <div class="bg-white p-6 rounded-xl border border-slate-200 executive-shadow flex flex-col justify-between space-y-6">
+                <div>
+                    <h4 class="text-base font-bold text-slate-900">Kontakt & Underlag</h4>
+                    <p class="text-xs text-slate-500 mt-1">Spara kontaktuppgifter eller ta del av fördjupat material.</p>
+
+                    <div class="space-y-3 mt-4 text-xs font-medium text-slate-700">
+                        <div class="flex items-center space-x-2.5">
+                            <i class="fa-solid fa-location-dot text-indigo-900 w-4"></i>
+                            <span>Köpmansgatan 109, 269 36 Båstad</span>
+                        </div>
+                        <div class="flex items-center space-x-2.5">
+                            <i class="fa-solid fa-phone text-indigo-900 w-4"></i>
+                            <a href="tel:0767929534" class="hover:underline text-indigo-900">0767-929534</a>
+                        </div>
+                        <div class="flex items-center space-x-2.5">
+                            <i class="fa-solid fa-envelope text-indigo-900 w-4"></i>
+                            <a href="mailto:karljohan.lord.gyllenstorm@gmail.com" class="hover:underline text-indigo-900">karljohan.lord.gyllenstorm@gmail.com</a>
+                        </div>
+                        <div class="flex items-center space-x-2.5">
+                            <i class="fa-solid fa-globe text-indigo-900 w-4"></i>
+                            <a href="https://gyllenstorm.net" target="_blank" class="hover:underline text-indigo-900">gyllenstorm.net</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="space-y-2 pt-4 border-t border-slate-100">
+                    <a href="https://drive.google.com/file/d/1XHSvElyYu6auLSsk-5To5LdaREWffKBb/view?usp=sharing" target="_blank" 
+                       class="w-full py-2.5 px-4 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold flex items-center justify-center gap-2 transition">
+                        <i class="fa-solid fa-address-card"></i>
+                        <span>Spara VCF Kontaktkort</span>
+                    </a>
+                    <a href="https://www.youtube.com/@karl-johan-lord-gyllenstorm" target="_blank" 
+                       class="w-full py-2.5 px-4 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-200 text-xs font-semibold flex items-center justify-center gap-2 transition">
+                        <i class="fa-brands fa-youtube text-rose-600"></i>
+                        <span>YouTube Presentation</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: DISCREET LINK GENERATOR FOR KARL-JOHAN -->
+        <section class="bg-slate-100 rounded-xl p-6 border border-slate-200">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
+                <div>
+                    <h4 class="text-sm font-bold text-slate-800 flex items-center gap-2">
+                        <i class="fa-solid fa-link text-indigo-900"></i>
+                        Verktyg: Generera anpassad URL för utskick
+                    </h4>
+                    <p class="text-xs text-slate-500">Skapa en unikt anpassad länk för varje arbetsgivare innan du skickar ditt mail.</p>
+                </div>
+                <span class="text-[10px] font-mono bg-slate-200 text-slate-600 px-2 py-1 rounded">Internt Hjälpverktyg</span>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs mb-3">
+                <div>
+                    <label class="block text-slate-600 font-semibold mb-1">Företagsnamn:</label>
+                    <input type="text" id="gen-company" placeholder="t.ex. Peab AB" class="w-full bg-white border border-slate-300 rounded px-3 py-2 text-slate-800 focus:outline-none focus:border-indigo-900">
+                </div>
+                <div>
+                    <label class="block text-slate-600 font-semibold mb-1">Sökt Roll / Befattning:</label>
+                    <input type="text" id="gen-role" placeholder="t.ex. Platschef" class="w-full bg-white border border-slate-300 rounded px-3 py-2 text-slate-800 focus:outline-none focus:border-indigo-900">
+                </div>
+                <div>
+                    <label class="block text-slate-600 font-semibold mb-1">Nyckelbegrepp (kommaseparerade):</label>
+                    <input type="text" id="gen-keywords" placeholder="t.ex. Projektledning, Logistik, Personalansvar" class="w-full bg-white border border-slate-300 rounded px-3 py-2 text-slate-800 focus:outline-none focus:border-indigo-900">
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center gap-2 pt-2">
+                <input type="text" id="gen-result-url" readonly class="w-full bg-white border border-slate-300 rounded px-3 py-2 text-xs font-mono text-indigo-900 select-all">
+                <button onclick="copyGeneratedUrl()" class="w-full sm:w-auto px-5 py-2 bg-indigo-900 hover:bg-indigo-800 text-white rounded text-xs font-semibold shrink-0 transition">
+                    Kopiera Länk
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t border-slate-200 py-6 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+            <div>
+                <strong class="text-slate-800">Karl-Johan Lord Gyllenstorm</strong> &bull; 25+ Års Ledarskaps- & Drifterfarenhet
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="https://gyllenstorm.net" target="_blank" class="hover:text-indigo-900 transition">gyllenstorm.net</a>
+                <span>&bull;</span>
+                <a href="mailto:karljohan.lord.gyllenstorm@gmail.com" class="hover:text-indigo-900 transition">E-post</a>
+                <span>&bull;</span>
+                <a href="tel:0767929534" class="hover:text-indigo-900 transition">0767-929534</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- LOGIC SCRIPT -->
+    <script>
+        // Global variables with default fallbacks
+        let recipientCompany = "Er Verksamhet";
+        let recipientRole = "Utlyst Befattning";
+        let recipientKeywords = "Ledarskap, Projektstyrning, Drift";
+
+        // Tab content database
+        const tabData = {
+            leadership: {
+                title: "VD & Övergripande Verksamhetsansvar",
+                badge: "Strategiskt & Ekonomiskt Ansvar",
+                text: "Erfarenhet från VD-roll med helhetsansvar för resultat, personal och långsiktig tillväxt. Van att navigera i komplexa miljöer, fatta beslut under ansvar och säkerställa att verksamhetens mål nås med hög kvalitet."
+            },
+            operations: {
+                title: "Platschef & Operativ Lagbas",
+                badge: "Närvarande Ledarskap på Fältet",
+                text: "Mångårig bakgrund i direkt ledarskap ute i driften. Expertis inom resursplanering, arbetsmiljö, logistik och att skapa en stark laganda där alla drar åt samma håll för att hålla tidsramar."
+            },
+            projects: {
+                title: "Projektstyrning & Processoptimering",
+                badge: "Struktur & Leveranssäkerhet",
+                text: "Drivit och strukturerat projekt från uppstart till överlämning. Starkt fokus på ordning, dokumentation och att eliminera flaskhalsar genom smarta rutin- och digitaliseringssteg."
+            },
+            business: {
+                title: "Eget Företagande & Entreprenörskap",
+                badge: "Affärsmässighet & Handlingskraft",
+                text: "Byggt och drivit egna verksamheter vilket gett en djup förståelse för hela affärskedjan – från kundkontakt och försäljning till ekonomisk uppföljning och praktiskt genomförande."
+            }
+        };
+
+        window.onload = function() {
+            parseURLParams();
+            updateDOMValues();
+            renderMatchTable();
+            switchTab('leadership');
+            setupLinkGenerator();
+        };
+
+        function parseURLParams() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has('foretag') && params.get('foretag').trim() !== "") {
+                recipientCompany = params.get('foretag').trim();
+            }
+            if (params.has('roll') && params.get('roll').trim() !== "") {
+                recipientRole = params.get('roll').trim();
+            }
+            if (params.has('nyckelord') && params.get('nyckelord').trim() !== "") {
+                recipientKeywords = params.get('nyckelord').trim();
+            }
+        }
+
+        function updateDOMValues() {
+            document.getElementById('header-company-name').textContent = recipientCompany;
+            document.getElementById('hero-company-name').textContent = recipientCompany;
+            document.getElementById('hero-role-title').textContent = recipientRole;
+            document.getElementById('hero-keywords-badge').textContent = recipientKeywords;
+        }
+
+        function renderMatchTable() {
+            const tableBody = document.getElementById('match-table-body');
+            const keywordsArray = recipientKeywords.split(',').map(k => k.trim());
+            
+            let rowsHTML = '';
+
+            // Row 1: Role matching
+            rowsHTML += `
+                <tr class="hover:bg-slate-50 transition">
+                    <td class="p-4 font-semibold text-slate-900">Roll matchning: ${recipientRole}</td>
+                    <td class="p-4">25+ års samlad erfarenhet som VD, platschef, lagbas och projektledare inom offentlig och privat sektor.</td>
+                    <td class="p-4 text-center"><span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 text-xs font-semibold rounded-full">Verifierad</span></td>
+                </tr>
+            `;
+
+            // Dynamic Rows based on provided keywords
+            keywordsArray.forEach((kw, idx) => {
+                rowsHTML += `
+                    <tr class="hover:bg-slate-50 transition">
+                        <td class="p-4 font-semibold text-slate-900">${kw}</td>
+                        <td class="p-4">Dokumenterad praktisk tillämpning och resultatstyrning från tidigare ledaruppdrag och eget företagande.</td>
+                        <td class="p-4 text-center"><span class="px-2.5 py-1 bg-indigo-100 text-indigo-800 text-xs font-semibold rounded-full">Hög Match</span></td>
+                    </tr>
+                `;
+            });
+
+            // Fallback default row
+            rowsHTML += `
+                <tr class="hover:bg-slate-50 transition">
+                    <td class="p-4 font-semibold text-slate-900">Långsiktigt Engagemang</td>
+                    <td class="p-4">Full tillgänglighet för heltidsuppdrag i minst 6 sammanhängande månader med snabb start.</td>
+                    <td class="p-4 text-center"><span class="px-2.5 py-1 bg-slate-100 text-slate-800 text-xs font-semibold rounded-full">Klar för start</span></td>
+                </tr>
+            `;
+
+            tableBody.innerHTML = rowsHTML;
+        }
+
+        function switchTab(tabKey) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`tab-btn-${tabKey}`).classList.add('active');
+
+            const data = tabData[tabKey];
+            const container = document.getElementById('tab-content-container');
+
+            container.innerHTML = `
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between">
+                        <h4 class="text-lg font-bold text-slate-900">${data.title}</h4>
+                        <span class="text-xs font-medium px-2.5 py-1 bg-slate-100 text-slate-700 rounded border border-slate-200">${data.badge}</span>
+                    </div>
+                    <p class="text-sm text-slate-600 leading-relaxed">${data.text}</p>
+                </div>
+            `;
+        }
+
+        function setupLinkGenerator() {
+            document.getElementById('gen-company').value = recipientCompany !== 'Er Verksamhet' ? recipientCompany : '';
+            document.getElementById('gen-role').value = recipientRole !== 'Utlyst Befattning' ? recipientRole : '';
+            document.getElementById('gen-keywords').value = recipientKeywords !== 'Ledarskap, Projektstyrning, Drift' ? recipientKeywords : '';
+
+            ['gen-company', 'gen-role', 'gen-keywords'].forEach(id => {
+                document.getElementById(id).addEventListener('input', generateURL);
+            });
+
+            generateURL();
+        }
+
+        function generateURL() {
+            const comp = encodeURIComponent(document.getElementById('gen-company').value.trim() || 'Företag');
+            const role = encodeURIComponent(document.getElementById('gen-role').value.trim() || 'Tjänst');
+            const kw = encodeURIComponent(document.getElementById('gen-keywords').value.trim() || 'Ledarskap, Drift');
+
+            const baseUrl = window.location.origin + window.location.pathname;
+            document.getElementById('gen-result-url').value = `${baseUrl}?foretag=${comp}&roll=${role}&nyckelord=${kw}`;
+        }
+
+        function copyGeneratedUrl() {
+            const input = document.getElementById('gen-result-url');
+            input.select();
+            document.execCommand('copy');
+            alert('Den skräddarsydda URL-länken har kopierats till urklipp!');
+        }
+    </script>
+</body>
+</html>
