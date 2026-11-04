@@ -315,6 +315,110 @@
         </div>
     </footer>
 
-    
-</body>
-</html>
+    <!-- LOGIC & CLICK TRACKING SCRIPT -->
+    <script>
+        let recipientCompany = "Er Verksamhet";
+        let recipientRole = "Utlyst Befattning";
+        let recipientKeywords = "Ledarskap, Projektstyrning, Drift";
+
+        const tabData = {
+            leadership: {
+                title: "VD & Övergripande Verksamhetsansvar",
+                badge: "Strategiskt & Ekonomiskt Ansvar",
+                text: "Erfarenhet från VD-roll med helhetsansvar för resultat, personal och långsiktig tillväxt. Van att navigera i komplexa miljöer, fatta beslut under ansvar och säkerställa att verksamhetens mål nås med hög kvalitet."
+            },
+            operations: {
+                title: "Platschef & Operativ Lagbas",
+                badge: "Närvarande Ledarskap på Fältet",
+                text: "Mångårig bakgrund i direkt ledarskap ute i driften. Expertis inom resursplanering, arbetsmiljö, logistik och att skapa en stark laganda där alla drar åt samma håll för att hålla tidsramar."
+            },
+            projects: {
+                title: "Projektstyrning & Processoptimering",
+                badge: "Struktur & Leveranssäkerhet",
+                text: "Drivit och strukturerat projekt från uppstart till överlämning. Starkt fokus på ordning, dokumentation och att eliminera flaskhalsar genom smarta rutin- och digitaliseringssteg."
+            },
+            business: {
+                title: "Eget Företagande & Entreprenörskap",
+                badge: "Affärsmässighet & Handlingskraft",
+                text: "Byggt och drivit egna verksamheter vilket gett en djup förståelse för hela affärskedjan – från kundkontakt och försäljning till ekonomisk uppföljning och praktiskt genomförande."
+            }
+        };
+
+        window.onload = function() {
+            parseURLParams();
+            updateDOMValues();
+            renderMatchTable();
+            switchTab('leadership');
+            setupLinkGenerator();
+        };
+
+        function parseURLParams() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has('foretag') && params.get('foretag').trim() !== "") {
+                recipientCompany = params.get('foretag').trim();
+            }
+            if (params.has('roll') && params.get('roll').trim() !== "") {
+                recipientRole = params.get('roll').trim();
+            }
+            if (params.has('nyckelord') && params.get('nyckelord').trim() !== "") {
+                recipientKeywords = params.get('nyckelord').trim();
+            }
+
+            const stad = params.get('stad') || "";
+
+            // SPÅRNINGSSKRIPT: Skickar klick-signal till Google Sheets via Apps Script
+            if (params.has('foretag') || params.has('roll')) {
+                const scriptURL = "https://script.google.com/macros/s/AKfycbzqacxAAXyNQbSzhiV0pr-voXCnYlRpJj-s51IZlhnQ67wUjz2AXXZyrjwPjcK5y2rEHQ/exec";
+
+                fetch(scriptURL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        foretag: recipientCompany,
+                        roll: recipientRole,
+                        nyckelord: recipientKeywords,
+                        stad: stad
+                    })
+                }).catch(err => console.log("Spårning misslyckades:", err));
+            }
+        }
+
+        function updateDOMValues() {
+            document.getElementById('header-company-name').textContent = recipientCompany;
+            document.getElementById('hero-company-name').textContent = recipientCompany;
+            document.getElementById('hero-role-title').textContent = recipientRole;
+            document.getElementById('hero-keywords-badge').textContent = recipientKeywords;
+        }
+
+        function renderMatchTable() {
+            const tableBody = document.getElementById('match-table-body');
+            const keywordsArray = recipientKeywords.split(',').map(k => k.trim());
+            
+            let rowsHTML = '';
+
+            rowsHTML += `
+                <tr class="hover:bg-slate-50 transition">
+                    <td class="p-4 font-semibold text-slate-900">Roll matchning: ${recipientRole}</td>
+                    <td class="p-4">25+ års samlad erfarenhet som VD, platschef, lagbas och projektledare inom offentlig och privat sektor.</td>
+                    <td class="p-4 text-center"><span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 text-xs font-semibold rounded-full">Verifierad</span></td>
+                </tr>
+            `;
+
+            keywordsArray.forEach((kw) => {
+                rowsHTML += `
+                    <tr class="hover:bg-slate-50 transition">
+                        <td class="p-4 font-semibold text-slate-900">${kw}</td>
+                        <td class="p-4">Dokumenterad praktisk tillämpning och resultatstyrning från tidigare ledaruppdrag och eget företagande.</td>
+                        <td class="p-4 text-center"><span class="px-2.5 py-1 bg-indigo-100 text-indigo-800 text-xs font-semibold rounded-full">Hög Match</span></td>
+                    </tr>
+                `;
+            });
+
+            rowsHTML += `
+                <tr class="hover:bg-slate-50 transition">
+                    <td class="p-4 font-semibold text-slate-900">Långsiktigt Engagemang</td>
+                    <td class="p-4">Full tillgänglighet för heltidsuppdrag med start enligt ö.k.</td>
+                    <td class="p-4 text-center"><span class="px-2.5 py-1 bg-slate-10
