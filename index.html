@@ -345,17 +345,22 @@
         };
 
         window.onload = function() {
-            try { parseURLParams(); } catch (e) { console.log("URL-parsning fel:", e); }
-            try { updateDOMValues(); } catch (e) { console.log("DOM-uppdatering fel:", e); }
-            try { renderMatchTable(); } catch (e) { console.log("Match-tabell fel:", e); }
-            try { switchTab('leadership'); } catch (e) { console.log("Flik-laddning fel:", e); }
-            try { setupLinkGenerator(); } catch (e) { console.log("Länkgenerator fel:", e); }
+            // 1. LÄS IN PARAMETRAR FRÅN URL FIRST
+            parseURLParams();
+
+            // 2. RENDERA ALLA VÄRDEN I GRÄNSSNITTET
+            try { updateDOMValues(); } catch (e) { console.error("DOM Error:", e); }
+            try { renderMatchTable(); } catch (e) { console.error("Table Error:", e); }
+            try { switchTab('leadership'); } catch (e) { console.error("Tab Error:", e); }
+            try { setupLinkGenerator(); } catch (e) { console.error("Generator Error:", e); }
+
+            // 3. SKICKA SPÅRNING I BAKGRUNDEN UTAN ATT STÖRA SIDAN
+            sendClickTracking();
         };
 
         function parseURLParams() {
             const params = new URLSearchParams(window.location.search);
             
-            // URLSearchParams hanterar avkodningen automatiskt, vi behöver bara trimma
             if (params.has('foretag') && params.get('foretag').trim() !== "") {
                 recipientCompany = params.get('foretag').trim();
             }
@@ -364,27 +369,6 @@
             }
             if (params.has('nyckelord') && params.get('nyckelord').trim() !== "") {
                 recipientKeywords = params.get('nyckelord').trim();
-            }
-
-            const stad = params.get('stad') ? params.get('stad').trim() : "";
-
-            // Skicka klick-signal tyst i bakgrunden till Apps Script
-            if (params.has('foretag') || params.has('roll')) {
-                const scriptURL = "https://script.google.com/macros/s/AKfycbzqacxAAXyNQbSzhiV0pr-voXCnYlRpJj-s51IZlhnQ67wUjz2AXXZyrjwPjcK5y2rEHQ/exec";
-
-                fetch(scriptURL, {
-                    method: 'POST',
-                    mode: 'no-cors',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        foretag: recipientCompany,
-                        roll: recipientRole,
-                        nyckelord: recipientKeywords,
-                        stad: stad
-                    })
-                }).catch(err => console.log("Spårning misslyckades:", err));
             }
         }
 
@@ -487,4 +471,48 @@
 
             const comp = encodeURIComponent(compEl ? compEl.value.trim() || 'Företag' : 'Företag');
             const role = encodeURIComponent(roleEl ? roleEl.value.trim() || 'Tjänst' : 'Tjänst');
-            const kw = encodeURIComponent(kwEl ? kwEl.value.trim() ||
+            const kw = encodeURIComponent(kwEl ? kwEl.value.trim() || 'Ledarskap, Drift' : 'Ledarskap, Drift');
+
+            const baseUrl = window.location.origin + window.location.pathname;
+            resultEl.value = `${baseUrl}?foretag=${comp}&roll=${role}&nyckelord=${kw}`;
+        }
+
+        function copyGeneratedUrl() {
+            const input = document.getElementById('gen-result-url');
+            if (!input) return;
+            input.select();
+            input.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(input.value).then(() => {
+                alert('Den skräddarsydda URL-länken har kopierats till urklipp!');
+            }).catch(() => {
+                document.execCommand('copy');
+                alert('Den skräddarsydda URL-länken har kopierats till urklipp!');
+            });
+        }
+
+        function sendClickTracking() {
+            const params = new URLSearchParams(window.location.search);
+            if (params.has('foretag') || params.has('roll')) {
+                const scriptURL = "https://script.google.com/macros/s/AKfycbzqacxAAXyNQbSzhiV0pr-voXCnYlRpJj-s51IZlhnQ67wUjz2AXXZyrjwPjcK5y2rEHQ/exec";
+                const stad = params.get('stad') ? params.get('stad').trim() : "";
+
+                try {
+                    fetch(scriptURL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            foretag: recipientCompany,
+                            roll: recipientRole,
+                            nyckelord: recipientKeywords,
+                            stad: stad
+                        })
+                    }).catch(err => console.log("Spårning ignorerad:", err));
+                } catch (e) {
+                    console.log("Spårningsfel ignorerat:", e);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
