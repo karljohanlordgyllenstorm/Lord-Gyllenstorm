@@ -130,7 +130,7 @@
     <!-- MAIN BRIEFING CONTENT -->
     <main class="max-w-6xl mx-auto px-4 py-10 w-full space-y-12 flex-grow">
 
-        <!-- SECTION 1: KRAV VS ERFARENHET (DIREKT MATCHNING) -->
+        <!-- SECTION 1: KRAV VS ERFARENHET -->
         <section class="space-y-4">
             <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2 border-b border-slate-200 pb-3">
                 <div>
@@ -156,14 +156,14 @@
                             </tr>
                         </thead>
                         <tbody id="match-table-body" class="divide-y divide-slate-100 text-slate-700">
-                            <!-- Dynamic Content loaded via JS -->
+                            <!-- Dynamic Content -->
                         </tbody>
                     </table>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 2: KARRIÄRMILSTOLPAR & LEDARSKAPSFILOSOFI (TABBED VIEW) -->
+        <!-- SECTION 2: KARRIÄRMILSTOLPAR & LEDARSKAPSFILOSOFI -->
         <section class="space-y-4">
             <div class="border-b border-slate-200 pb-3">
                 <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2.5">
@@ -191,7 +191,7 @@
 
             <!-- Tab Contents -->
             <div id="tab-content-container" class="bg-white p-6 rounded-xl border border-slate-200 executive-shadow min-h-[220px]">
-                <!-- Dynamic Content loaded via JS -->
+                <!-- Dynamic Content -->
             </div>
         </section>
 
@@ -261,7 +261,7 @@
             </div>
         </section>
 
-        <!-- SECTION 4: DISCREET LINK GENERATOR FOR KARL-JOHAN -->
+        <!-- SECTION 4: DISCREET LINK GENERATOR -->
         <section class="bg-slate-100 rounded-xl p-6 border border-slate-200">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-2">
                 <div>
@@ -269,9 +269,9 @@
                         <i class="fa-solid fa-link text-indigo-900"></i>
                         Verktyg: Generera anpassad URL för intresseanmälan/ jobbansökan
                     </h4>
-                    <p class="text-xs text-slate-500"> Här skapar jag en unikt anpassad länk för varje arbetsgivare innan jag skickar min intresseanmälan/ jobbansökan.</p>
+                    <p class="text-xs text-slate-500">Här skapar jag en unikt anpassad länk för varje arbetsgivare innan jag skickar min intresseanmälan/ jobbansökan.</p>
                 </div>
-                <span class="text-[10px] font-mono bg-slate-200 text-slate-600 px-2 py-1 rounded"> Mitt Privata Interna Hjälpverktyg</span>
+                <span class="text-[10px] font-mono bg-slate-200 text-slate-600 px-2 py-1 rounded">Mitt Privata Interna Hjälpverktyg</span>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs mb-3">
@@ -315,7 +315,7 @@
         </div>
     </footer>
 
-    <!-- LOGIC SCRIPT -->
+    <!-- LOGIC & CLICK TRACKING SCRIPT -->
     <script>
         // Global variables with default fallbacks
         let recipientCompany = "Er Verksamhet";
@@ -364,6 +364,27 @@
             }
             if (params.has('nyckelord') && params.get('nyckelord').trim() !== "") {
                 recipientKeywords = params.get('nyckelord').trim();
+            }
+
+            const stad = params.get('stad') || "";
+
+            // SPÅRNINGSSKRIPT: Skickar tyst klick-signal till Google Sheets via Apps Script
+            if (params.has('foretag') || params.has('roll')) {
+                const scriptURL = "https://script.google.com/macros/s/AKfycbzqacxAAXyNQbSzhiV0pr-voXCnYlRpJj-s51IZlhnQ67wUjz2AXXZyrjwPjcK5y2rEHQ/exec";
+
+                fetch(scriptURL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        foretag: recipientCompany,
+                        roll: recipientRole,
+                        nyckelord: recipientKeywords,
+                        stad: stad
+                    })
+                }).catch(err => console.log("Spårning misslyckades:", err));
             }
         }
 
